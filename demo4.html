@@ -1,0 +1,62 @@
+<!-- demo4.html -->
+<html>
+<head>
+    <style>
+        #myIframe {
+            height: 300px;
+            width:100%;
+            border: 2px solid #999;
+        }
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .btn {
+            margin:20px;
+        }
+        .col1 {
+            flex: 1 auto;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Demo4</h2>
+<div class="main">
+    <div class="col1" style="width:80%">
+        <div id="iframe-wrapper1">
+            <iframe id="myIframe" src="https://en.wikipedia.org/wiki/Sociable_weaver"></iframe>
+        </div>
+    </div>
+    <div class="col1">
+        <button id="myButton" class="btn" onclick="triggerClickInsideIframe()">Button outside</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById('myIframe').onload = function() {
+        let head = document.getElementById("myIframe").contentWindow.document.head || document.getElementById("myIframe").contentWindow.document.getElementsByTagName('head')[0];
+        let body = document.getElementById("myIframe").contentWindow.document.body || document.getElementById("myIframe").contentWindow.document.getElementsByTagName('body')[0];
+        let style = document.createElement('style');
+        let css = "body{background:red !important;} #toggleDivButton {display:none}";
+        let header = "<h1 style='color:yellow'>Appended text using JS</h1>";
+
+        head.appendChild(style);
+        style.appendChild(document.createTextNode(css));
+
+        body.innerHTML += header;
+
+        setTimeout(function(){
+            document.getElementById("iframe-wrapper1").classList.remove("is-loading");
+        },2000);
+    };
+</script>
+<script>
+    function triggerClickInsideIframe() {
+        document.getElementById("myIframe").contentWindow.document.getElementById("toggleDivButton").click();
+    }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,57 @@
+<!-- demo2.html -->
+<html>
+<head>
+    <style>
+        #myIframe {
+            height: 300px;
+            width:100%;
+            border: 2px solid #999;
+        }
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .btn {
+            margin:20px;
+        }
+        .col1 {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Demo2</h2>
+<div class="main">
+    <div class="col1">
+        <iframe id="myIframe" src="iframe1.html"></iframe>
+    </div>
+    <div class="col1">
+        <button id="myButton2" class="btn" onclick="changeIframeBackground()">Change iframe background</button>
+        <br>
+        <button id="myButton3" class="btn" onclick="hideIframeButton()">Hide iframe button</button>
+    </div>
+</div>
+
+<script>
+    function changeIframeBackground(){
+        let head = document.getElementById("myIframe").contentWindow.document.head || document.getElementById("myIframe").contentWindow.document.getElementsByTagName('head')[0];
+        let style = document.createElement('style');
+        let css = "body{background:orange !important;}";
+
+        head.appendChild(style);
+        style.appendChild(document.createTextNode(css));
+    }
+    function hideIframeButton(){
+        let head = document.getElementById("myIframe").contentWindow.document.head || document.getElementById("myIframe").contentWindow.document.getElementsByTagName('head')[0];
+        let style = document.createElement('style');
+        let css = "#toggleDivButton {display:none}";
+
+        head.appendChild(style);
+        style.appendChild(document.createTextNode(css));
+    }
+</script>
+
+</body>
+</html>
+

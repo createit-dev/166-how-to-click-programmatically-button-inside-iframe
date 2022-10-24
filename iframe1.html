@@ -1,0 +1,32 @@
+<!-- iframe1.html -->
+<html>
+<head>
+    <style>
+        body {
+            background:yellowgreen;
+        }
+        #myDIV{
+            background:yellow;
+            border:3px solid brown;
+            padding:50px;
+            margin:10px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>Iframe content</h1>
+<button type="button" id="toggleDivButton" onclick="toggleDiv()">Toggle div</button>
+<div id="myDIV" style="display:none;">Hidden content</div>
+
+<script>
+    function toggleDiv() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

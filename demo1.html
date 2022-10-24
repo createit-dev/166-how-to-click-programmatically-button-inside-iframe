@@ -1,0 +1,40 @@
+<!-- demo1.html -->
+<html>
+<head>
+    <style>
+        #myIframe {
+            height: 300px;
+            width:100%;
+            border: 2px solid #999;
+        }
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #myButton {
+            margin:20px;
+        }
+        .col1 {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+<h2>Demo1</h2>
+<div class="main">
+    <div class="col1">
+        <iframe id="myIframe" src="iframe1.html"></iframe>
+    </div>
+    <div class="col1">
+        <button id="myButton" onclick="triggerClickInsideIframe()">Button outside</button>
+    </div>
+</div>
+
+<script>
+    function triggerClickInsideIframe() {
+        document.getElementById("myIframe").contentWindow.document.getElementById("toggleDivButton").click();
+    }
+</script>
+
+</body>
+</html>
