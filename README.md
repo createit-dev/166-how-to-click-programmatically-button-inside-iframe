@@ -24,3 +24,5 @@ Example of clicking iframe button (from outside iframe):
 #### Demo3
 ![](https://github.com/createit-dev/166-how-to-click-programmatically-button-inside-iframe/blob/master/images/demo3.gif)
 
+### Learn More
+Learn more in the article: ['How to Trigger a Click Event Inside an Iframe?'](https://www.createit.com/blog/how-to-trigger-a-click-event-inside-iframe/)
